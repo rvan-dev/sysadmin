@@ -1,4 +1,7 @@
+The download script is a substitude for wget on windows
+
 The getgroupmembers script can be used in a windows AD to print all the members of one or multiple specified groups 
   
 The getsreviceaccounts script can be used to list all the service users that are used on this machine, it will print which services are allocated to which user.
 Helpful if you don't know which user is used for what service and you need to change the credentials in the servicemanager
+

@@ -1,0 +1,38 @@
+#########################################################################
+# This Script is used to import Roles into VCenter using PowerCLI       #
+# Author: rvan-dev                                                      #
+# Version: 1.0                                                          #
+#########################################################################
+echo "Start module import"
+Import-Module VMware.PowerCLI
+
+echo "Module import finished"
+Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$false
+Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $false
+
+echo "Disconnect existing connections to VCenter Server"
+Disconnect-VIServer
+
+echo "Initialize connection"
+Connect-VIServer -Server "IP" -User "UNAME" -Password "PASSWORD"
+echo "Connection Established"
+
+####################################TEST#################################
+#echo "\n Show the Priviliges of the Roles"                             #
+#(Get-VIRole -name “RoleNAME”).ExtensionData.Privilege                  #
+#(Get-VIRole -name "RoleNAME”).ExtensionData.Privilege                  #
+#(Get-VIRole -name “RoleNAME”).ExtensionData.Privilege                  #
+#########################################################################
+
+#echo "Import Role1"
+#$Role = New-VIRole -Name "Role1NAME"
+#$privilege = Get-content C:\<PATH to exported priv for role1>
+#$privilege | foreach {Set-VIRole -role $role -AddPrivilege (get-viprivilege -id $_) }
+
+#echo "Import Role1"
+#$Role = New-VIRole -Name "Role2NAME"
+#$privilege = Get-content C:\<PATH to exported priv for role2>
+#$privilege | foreach {Set-VIRole -role $role -AddPrivilege (get-viprivilege -id $_) }
+
+
+ 

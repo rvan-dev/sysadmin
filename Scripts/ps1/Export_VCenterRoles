@@ -1,1 +1,23 @@
+#########################################################################
+# This Script is used to export Roles from VCenter using PowerCLI       #
+# Author: rvan-dev                                                      #
+# Version: 1.0                                                          #
+#########################################################################
+echo "Start module import"
+Import-Module VMware.PowerCLI
 
+echo "Module import finished"
+Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$false
+Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $false
+
+echo "Disconnect existing connections to VCenter Server"
+Disconnect-VIServer
+
+echo "Initialize connection"
+Connect-VIServer -Server "IP" -User "UNAME" -Password "PASSWORD"
+echo "Connection Established"
+
+echo "Export Role1"
+(Get-VIRole -name “Role1”).ExtensionData.Privilege >> C:\<exportpath>\<filename>.txt
+echo "Export Role2"
+(Get-VIRole -name “Role2”).ExtensionData.Privilege >> C:\<exportpath>\<filename2>.txt

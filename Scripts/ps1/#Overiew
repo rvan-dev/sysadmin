@@ -7,4 +7,4 @@ Helpful if you don't know which user is used for what service and you need to ch
 
 The Export_VCenterRoles script is used to export the privileges of roles from VCenter using PowerCLI
 
-The Import_VCenterRoles script is used to create new roles and import beforehand exported privileges into the new roles 
+The Import_VCenterRoles script is used to create new roles and import beforehand exported privileges into the new roles using PowerCLI
